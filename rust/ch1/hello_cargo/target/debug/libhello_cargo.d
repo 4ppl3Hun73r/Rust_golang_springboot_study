@@ -1,0 +1,1 @@
+/Users/slayer1000/Desktop/rust_go_spring/Rust_golang_springboot_study/rust/ch1/hello_cargo/target/debug/libhello_cargo.rmeta: /Users/slayer1000/Desktop/rust_go_spring/Rust_golang_springboot_study/rust/ch1/hello_cargo/src/main.rs
