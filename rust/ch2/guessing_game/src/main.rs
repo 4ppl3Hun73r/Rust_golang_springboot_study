@@ -13,26 +13,39 @@ fn main() {
 	let secret_number = rand::thread_rng().gen_range(1, 101);
 	println!("The secret number is: {}", secret_number);
 
-	println!("Please input your guess.");
 
-	let mut guess = String::new();
-	// let guess = String::new(); error immutable
+	loop {
+		println!("Please input your guess.");
 
-	io::stdin().read_line(&mut guess) // ypes into statndard input an place that into a string
-			// & indicates is a reference 
-		.expect("Failed to read line"); // Fail ... 
+		let mut guess = String::new();
+		// let guess = String::new(); error immutable
 
-	// io::stdin().read_line(&mut guess); // Don't use 'Result' compile warn!
+		io::stdin().read_line(&mut guess) // ypes into statndard input an place that into a string
+				// & indicates is a reference 
+			.expect("Failed to read line"); // Fail ... 
 
-	println!("You guessed: {}", guess);
+		// io::stdin().read_line(&mut guess); // Don't use 'Result' compile warn!
 
-	let guess: u32 = guess.trim().parse() // Shadowing 을 통한 동일 변수명을 형식만 변경해서 사용
-		.expect("Plaease type a number!"); // parse는 Result 반환, expect를 통해서 Err를 컨트롤 할수 있음
+		println!("You guessed: {}", guess);
 
-	match guess.cmp(&secret_number) {
-		Ordering::Less => println!("Too small!"),
-		Ordering::Greater => println!("Too big!"),
-		Ordering::Equal => println!("You win!")
+//		let guess: u32 = guess.trim().parse() // Shadowing 을 통한 동일 변수명을 형식만 변경해서 사용
+//			.expect("Plaease type a number!"); // parse는 Result 반환, expect를 통해서 Err발생시 처리
+
+		let guess: u32 = match guess.trim().parse() {
+			Ok(num) => num,
+			Err(_) => continue,	// Error 가 발생핻 loop가 정상적으로 동작하게 수정
+						// _ catchall value
+		};
+
+
+		match guess.cmp(&secret_number) {
+			Ordering::Less => println!("Too small!"),
+			Ordering::Greater => println!("Too big!"),
+			Ordering::Equal => {
+				println!("You win!");
+				break;
+			}
+		}
 	}
 
 	main2();
