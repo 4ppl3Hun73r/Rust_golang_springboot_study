@@ -1,0 +1,6 @@
+[package]
+name = "company"
+version = "0.1.0"
+authors = ["slayer1000"]
+
+[dependencies]
