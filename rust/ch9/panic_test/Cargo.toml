@@ -1,0 +1,9 @@
+[package]
+name = "panic_test"
+version = "0.1.0"
+authors = ["slayer1000"]
+
+[profile.release]
+panic = 'abort'
+
+[dependencies]
