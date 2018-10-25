@@ -1,0 +1,8 @@
+[package]
+name = "publishing_test.jiho.sung"
+version = "0.1.0"
+authors = ["slayer1000"]
+description = "publishing test"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
