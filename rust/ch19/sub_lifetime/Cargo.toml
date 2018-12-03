@@ -1,0 +1,6 @@
+[package]
+name = "sub_lifetime"
+version = "0.1.0"
+authors = ["slayer1000"]
+
+[dependencies]
